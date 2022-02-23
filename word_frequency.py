@@ -4,10 +4,49 @@ STOP_WORDS = [
     'will', 'with'
 ]
 
+# PUNCTUATION = !()-[]{};:'"\,<>./?@#$%^&*_~
 
 def print_word_freq(file):
     """Read in `file` and print out the frequency of words in that file."""
-    pass
+    with open(file) as file:
+        text_string = file.read()
+        # print(text_string[0:100])
+        print(f"{len(text_string)}")
+        text_string = text_string.replace(".", "")
+        text_string = text_string.replace(",", "")
+        text_string = text_string.replace("'", "")
+        text_string = text_string.replace("?", "")
+        text_string = text_string.replace("!", "")
+        text_string = text_string.replace("\\n", "")
+        text_string = text_string.replace(":", "")
+        text_string = text_string.replace("[", "")
+        text_string = text_string.replace("]", "")
+        text_string = text_string.replace("\"", "")
+        text_string = text_string.replace("’", "")
+        text_string = text_string.replace("-", "")
+        text_string = text_string.replace("—", "")
+        text_string = text_string.replace('"', "")
+        text_string = text_string.lower().split()
+        # print(text_string[0:100])
+        # return text_string[0:100]
+    
+        text = text_string
+        stop_word_set = set(STOP_WORDS)
+        text_string = [item for item in text if item not in stop_word_set]
+        print(text_string[0:100])
+        return text_string [0:100]
+        
+        
+        
+        
+        # lines = file.readlines() 
+        # print(type(lines))
+
+        # text_string = file.read()
+        # print(text_string)
+        # print(f"{len(text_string)}")
+    # word_list = text_string
+    # word_list.lower
 
 
 if __name__ == "__main__":

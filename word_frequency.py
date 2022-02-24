@@ -47,11 +47,12 @@ def print_word_freq(file):
                 else:
                     newword_list_filtered[word] = 1
     
+        newword_list_sorted = []
         newword_list_sorted = dict(sorted(newword_list_filtered.items(), key=lambda seq: seq[1], reverse=True))
+        for key,value in newword_list_sorted.items():
+            print(f"{key:>20} | {(value * '*'):<20}")
         
-        for key in newword_list_sorted:
-            print(f"{key:>20} | {newword_list_sorted[key]:2} {'*' * newword_list_sorted[key]}")
-        
+        return newword_list_sorted
         # word_dict = {}
         # for word in newword_list_sorted:
         #     word_dict[word] = newword_list_sorted.count(word)
